@@ -12,63 +12,79 @@
         android:orientation="vertical">
 
         <ImageView
+            android:id="@+id/weather_image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="300dp"
+            android:minHeight="250dp"
             android:padding="20dp"
             android:src="@drawable/ic_weather_black">
 
         </ImageView>
 
         <TextView
+            android:id="@+id/city"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="..."
             android:layout_marginLeft="5dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="5dp"
             android:layout_marginBottom="5dp"
-            android:text="Haze"
+            android:textAlignment="center"
+            android:textSize="22dp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/weather_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="..."
             android:textAlignment="center"
             android:textSize="22dp"></TextView>
 
         <TextView
+            android:id="@+id/feels_like"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Real Feel: 286.32"
+            android:text="Real Feel: ..."
             android:textAlignment="center"
             android:textSize="20dp"></TextView>
 
         <TextView
+            android:id="@+id/min_max"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Maximum: 67.08 Minimum: 78.00"
+            android:text="Maximum: ... Minimum: ..."
             android:textAlignment="center"
             android:textSize="20dp"></TextView>
 
         <TextView
+            android:id="@+id/lat_long"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="Latitude: 24.91, Longitude: 67.08"
+            android:text="Latitude: ..., Longitude: ..."
             android:textAlignment="center"
             android:textSize="20dp"></TextView>
 
         <TextView
+            android:id="@+id/wind_speed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="Wind Speed: 5.1 miles/h"
+            android:text="Wind Speed: ... miles/h"
             android:textAlignment="center"
             android:textSize="20dp"></TextView>
 
         <TextView
+            android:id="@+id/psi_hum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:text="Pressure: 24.91, Humidity: 67.08"
+            android:text="Pressure: ... Humidity: ..."
             android:textAlignment="center"
             android:textSize="20dp"></TextView>
-
 
     </LinearLayout>
 

@@ -11,6 +11,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.example.myapplication.R;
 
@@ -25,7 +27,18 @@ public class VideosFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.videos_fragment, container, false);
+        View videos = inflater.inflate(R.layout.videos_fragment, container, false);
+        WebView browser = (WebView) videos.findViewById(R.id.webview);
+        browser.getSettings().setJavaScriptEnabled(true);
+        browser.loadUrl("https://www.youtube.com/results?search_query=tourist+spots");
+        browser.setWebViewClient(new WebViewClient(){
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url){
+                view.loadUrl(url);
+                return true;
+            }
+        });
+        return videos;
     }
 
     @Override

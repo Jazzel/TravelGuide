@@ -53,52 +53,54 @@ public class InformationFragment extends Fragment {
         TextView description = (TextView) information.findViewById(R.id.description);
         TextView more_description = (TextView) information.findViewById(R.id.more_description);
 
-        Button get_information = (Button)information.findViewById(R.id.get_information);
+        Button get_information = (Button) information.findViewById(R.id.get_information);
 
         TextInputEditText tourist_spot = (TextInputEditText) information.findViewById(R.id.tourist_spot);
 
 
         get_information.setOnClickListener(view -> {
-            str_location = tourist_spot.getText().toString();
-            description.setText("Loading....");
-            StringRequest stringRequest = new StringRequest(URL + str_location, new Response.Listener<String>() {
-                @Override
-                public void onResponse(String response) {
-                    try {
-                        obj = new JSONObject(response);
+            if (tourist_spot.getText().toString().isEmpty()) {
+                Toast.makeText(information.getContext(), "Please enter any tourist spot and try again !", Toast.LENGTH_SHORT).show();
+            } else {
+                str_location = tourist_spot.getText().toString();
+                description.setText("Loading....");
+                more_description.setText("....");
+                StringRequest stringRequest = new StringRequest(URL + str_location, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
                         try {
-                            description.setText(obj.getString("description"));
-                            more_description.setText(obj.getString("more_description"));
+                            obj = new JSONObject(response);
+                            try {
+                                description.setText(obj.getString("description"));
+                                more_description.setText(obj.getString("more_description"));
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+
                     }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("MainActivity.class", "onErrorResponse: " + error.getMessage());
 
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    Log.e("MainActivity.class", "onErrorResponse: " + error.getMessage());
+                    }
+                });
 
-                }
-            });
+                location.setText(str_location);
+                tourist_spot.setText("");
+                RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+                requestQueue.add(stringRequest);
 
-            location.setText(str_location);
-            tourist_spot.setText("");
-            RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-            requestQueue.add(stringRequest);
-
+            }
 
         });
 
 
-
-
-
-
         return information;
+
     }
 
     @Override
