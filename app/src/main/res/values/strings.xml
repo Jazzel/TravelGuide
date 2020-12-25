@@ -1,4 +1,8 @@
 <resources>
-    <string name="app_name">TravelGuide-MARK-ONE</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="app_name">Travel Guide</string>
+    <string name="title_home">Location</string>
+    <string name="title_weather">Weather</string>
+    <string name="title_distance">Distance</string>
+    <string name="title_videos">Videos</string>
+    <string name="title_information">Information</string>
 </resources>

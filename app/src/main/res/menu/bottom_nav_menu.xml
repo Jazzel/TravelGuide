@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_map_black"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/navigation_weather"
+        android:icon="@drawable/ic_weather_black"
+        android:title="@string/title_weather" />
+
+    <item
+        android:id="@+id/navigation_distance"
+        android:icon="@drawable/ic_distance_black"
+        android:title="@string/title_distance" />
+
+    <item
+        android:id="@+id/navigation_videos"
+        android:icon="@drawable/ic_videos_black"
+        android:title="@string/title_videos" />
+
+    <item
+        android:id="@+id/navigation_information"
+        android:icon="@drawable/ic_info_black"
+        android:title="@string/title_information" />
+
+</menu>
